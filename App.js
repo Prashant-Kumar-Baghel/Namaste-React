@@ -32,9 +32,9 @@ React.createElement(
 
 
 
-// creating h1 tag using react
+// writing helloworld programme using react.js
 const heading= React.createElement("h1", {id:"heading"} , "Hello World from React.js")
-console.log(heading)//It will give object.
+console.log(heading)//heading is an object which type is h1.heading is not h1 tag.
 const root= ReactDOM.createRoot(document.getElementById("root"));
 root.render(heading);
 // root.render(parent);
