@@ -1,3 +1,5 @@
+import React from "react"
+import ReactDOM from "react-dom/client"
 //Now we create nested html structure inside react.js
 {/* <div id="parent">
     <div id="child">
@@ -33,7 +35,7 @@ React.createElement(
 
 
 // writing helloworld programme using react.js
-const heading= React.createElement("h1", {id:"heading"} , "Hello World from React.js")
+const heading= React.createElement("h1", {id:"heading"} , "Hello World from Namaste React.js ")
 console.log(heading)//heading is an object which type is h1.heading is not h1 tag.
 const root= ReactDOM.createRoot(document.getElementById("root"));
 root.render(heading);
