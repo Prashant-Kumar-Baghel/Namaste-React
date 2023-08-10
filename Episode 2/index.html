@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Namaste React</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <!-- Created Helloworld programme using html -->
+    <!-- <div id="root">
+         <h1>Heloo World</h1>
+     </div> -->
+    
+     <div id="root">
+        
+     </div>
+    <!-- Created Helloworld programme using javascript -->
+    <!-- <script>
+        let heading=document.crea teElement('h1');
+        heading.innerText="HelloWorld";
+        const root=document.getElementById("root");
+        root.appendChild(heading);
+    </script> -->
+
+    <!-- 1st way to include react in project -->
+    <!-- At the end React.js is just javaScript piece of code.which making our life easier. -->
+    <!-- the first file contain the core of react.js framework algorithm -->  
+    <!-- <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script> -->
+    
+    <!-- The second file contain react-dom which is react library and usefull for dom operation or modify the dom. -->
+<!-- <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> -->
+  
+
+<!-- React.createElement(type,{props},children); 
+type: the type of the HTML element (h1,p,button).
+props: properties of the object({style:{size:10px}} or Eventhandlers, classNames,etc).this used to give attributes.
+children: anything that need to be displayed on the screen or what we have to put inside type hence it is called children. -->
+<!-- Created Helloworld programme using React.js-->
+<!-- <script>
+    // creating h1 tag using react
+     const heading= React.createElement("h1", {} , "Hello World from React.js")
+     //first we need to tell react where we have to renderes our tag.let we rendered our heading inside root hence we have to create root.Basically root is place where all the react code will run. 
+    //  Note:- creating a root and rendering inside it. it is a job of react-dom.
+    const root= ReactDOM.createRoot(document.getElementById("root"));
+    //Through root.render(heading) we rendering our heading inside the root.
+    root.render(heading);  
+</script> -->
+
+<!-- Adding React by using external react.js file. -->
+<script type="module" src="./App.js"></script>
+</body>
+</html>
