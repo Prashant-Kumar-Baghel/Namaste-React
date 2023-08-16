@@ -1,0 +1,54 @@
+#heading{
+    color: brown;
+    
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+/* Navigation */
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0vw 8vw;
+    align-items: center;
+    /* border: 2px solid black; */
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.15);
+}
+.header ul{
+    display: flex;
+}
+.header ul li{
+    margin-right: 32px;
+    list-style-type: none;
+    font-size: 26px;
+    font-weight: 500;
+}
+
+/* Card */
+.res-card{
+    width: 200px;
+    /* height: 300px; */
+    
+    /* we give padding: 5px to make little distance with boundary of card so card look amazing. */
+    padding: 5px;
+    /* we give margin: 4px to make distance between cards */
+    margin: 4px;
+}
+.search{
+
+    padding: 10px;
+}
+.res-logo{
+     width: 100%;
+    height: 230px;
+}
+.res-card:hover{
+    border: 1px solid black;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.res-container{
+    display: flex;
+    flex-wrap: wrap;
+}
