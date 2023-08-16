@@ -31,7 +31,7 @@ const Header=()=>{
 const styleCard={//Inline style
     backgroundColor:"#f0f0f0"
 }
-/*What is consfig-driven ui?
+/*What is config-driven ui?
 Configuration-driven UI, also known as config-driven UI or configuration-based UI - When you build real a world application so you want your should website work in many country or many places so we control our fontend which is known as using Config-Driven UI . API or Backend Driven which is data Comming from API.
 or
 In a configuration-driven UI, the layout, styles, and other properties of UI elements are defined in a configuration file or database, which can be easily modified without requiring changes to the codebase. This approach makes it easier to customize the UI for different use cases or user groups, without the need for extensive coding.
@@ -61,6 +61,7 @@ const RestaurabtCard=(props)=>{//Instead of props we can do destructuring like w
             <img 
             className="res-logo"
             // + operator use in javaScript hence we wrap this inside  curlie bracket.
+            // In src we use cdn and cloudinaryImageId , here cloudinaryImageId is different for every image and cdn is same for every image.
             src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_366/"+cloudinaryImageId}
             alt="" />
 
