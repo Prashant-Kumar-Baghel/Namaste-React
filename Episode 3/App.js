@@ -35,8 +35,9 @@ hello = val => "Hello " + val;*/
 //React Functional Component .
 const Title=()=>(<h1>Namaste React</h1>);//wrap h1 into round bracket for multiple lines.
 
-//Component Composition 
+
 /*Suppose we are getting some data from api(like const data=api.getdata();) and that data is some kind of mallesious data which will run in laptops and if attacker get access to run javascript in laptop then attacker can steal cookies, read localStorage , get information of laptop  and this type of attack known as cross-side scripting.But jsx is take care of these attacks.Basically jsx just escape mallesious code.whatever we write inside curlie bracket that will sanitize and pass further or prevent cross-side scripting.*/
+//Component Composition 
 const HeadingComponent=()=>{
     return <div className="container">
         {/* Putting component inside a component.<Title/> and <Tittle></Tittle> both gives same result.*/}
