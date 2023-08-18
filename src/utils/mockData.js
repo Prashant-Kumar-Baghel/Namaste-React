@@ -1092,7 +1092,7 @@ const resList=[
   
 ]  
 
-export default resList;
+export default resList; 
 
 //There are two types of exports: Named and Default.
 /*1)Named Export:To export multiple things from a file, we use Named Export.
@@ -1100,7 +1100,7 @@ You can create named exports two ways. In-line individually, or all at once at t
 
 a)In-line individually:
 export const name = "Jesse"
-export const age = 40
+export const age = 40 
    
 b)All at once at the bottom:
 
@@ -1111,6 +1111,7 @@ export { name, age };
 
 /*2)Default Export:-
 a) By default a file export only one thing.
+b)A good practise isto use default export for components.
 const message = () => {
     const name = "Jesse";
     const age = 40;

@@ -5,7 +5,7 @@ const styleCard={//Inline style
 const RestaurantCard=(props)=>{
     
     const {resData}=props;
-
+ 
     const {
         name,
         cuisines,

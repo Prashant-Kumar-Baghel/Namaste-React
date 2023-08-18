@@ -10,7 +10,9 @@ const Body=()=>{
 
  //Always write hook inside the component jsut above the return statement.
  
-// const [listRest,setlistRest]= useState([
+ //State Variable
+ 
+//  (2nd)const [listRest,setlistRest]= useState([
 //       {
 //           "info": {
 //             "id": "264693",
@@ -84,9 +86,11 @@ const Body=()=>{
 //       }
 //       }
 //     ])
+
  const [listRest,setlistRest]= useState(resList)
 
-  //Normal JavaScript variable
+
+  //Normal JavaScript variable(1st,Here Ui not changes)
 // let listRest=[
 //     {
 //         "info": {
@@ -143,6 +147,7 @@ const Body=()=>{
 //       }
 //     }
 // ]
+
     return(
         <div className="body">
             <div className="filter">

@@ -22,5 +22,5 @@ const Header=()=>{
 
         </div>
     )
-}
+} 
 export default Header;//To use Header file in another file we have to export it.
