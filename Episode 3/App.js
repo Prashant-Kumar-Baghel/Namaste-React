@@ -30,7 +30,23 @@ hello = (val) => "Hello " + val;
 In fact, if you have only one parameter, you can skip the parentheses as well:
 
 Arrow Function Without Parentheses:
-hello = val => "Hello " + val;*/
+hello = val => "Hello " + val;
+
+Note:-The braces can only be omitted if the function directly returns an expression. If the body has additional lines of processing, the braces are required — and so is the return keyword.
+ex:-   
+// Traditional anonymous function
+(function (a, b) {
+  const chuck = 42;
+  return a + b + chuck;
+});
+
+// Arrow function
+(a, b) => {
+  const chuck = 42;
+  return a + b + chuck;
+};
+
+*/
 
 //React Functional Component .
 const Title=()=>(<h1>Namaste React</h1>);//wrap h1 into round bracket for multiple lines.

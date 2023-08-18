@@ -41,7 +41,6 @@ const RestaurabtCard=(props)=>{//Instead of props we can do destructuring like w
     
     // const {name,cuisines}=props;
     const {resData}=props;
-    // Here props is an object hence we have to write props.name in curlie bracket.
 
     //Optimization
     // 1)resData?.data is an example of using the optional chaining operator in JavaScript. This operator allows you to access properties of an object in a way that gracefully handles cases where the object or its properties might be null or undefined.
@@ -65,9 +64,12 @@ const RestaurabtCard=(props)=>{//Instead of props we can do destructuring like w
             src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_366/"+cloudinaryImageId}
             alt="" />
 
-            {/* <h3>{props.name}</h3> 
-             <h4>{cuisines}</h4> */}
+             
+            {/* <h3>{props.name}</h3> // Here props is an object hence we have to write props.name in curlie bracket.
+             <h4>{cuisines}</h4>
+              */}
 
+             {/* When resData is object */}
              {/* <h3>{resData.info.name}</h3> 
              <h4>{resData.info.cuisines.join(", ")}</h4>
              <h4>{resData.info.avgRating}</h4>
@@ -1187,8 +1189,10 @@ const Body=()=>{
                 {/* Whenever we need anything which can be reuse we create Component for that . */}
                 {/* name,cuisins,resData are props. */}
 
-                  {/* <RestaurabtCard 
+                {/* When resList is an object */}
+                {/* <RestaurabtCard 
                  resData={resList}/> */}
+
                 {/* <RestaurabtCard name="KFC"
                 cuisins="Burger, Fast Food is  Indian"/> */}
 

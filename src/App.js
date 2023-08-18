@@ -1,53 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
-//  Header(Navigation bar)
-const Header=()=>{
-    return (
-        <div className="header">
-
-            <div className="logo-container">
-                <img 
-                className="logo"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTThk6B4F2Q-aQEosit-VHmYfxhiDDAlBNo-JuA8nQN&s"/>
-            </div>
-
-            <div className="nav-items">
-                
-                    <ul>
-                        <li>Home</li>
-                        <li>About Us</li>
-                        <li>Contact Us</li>
-                        <li>Cart</li>
-                    </ul>
-                
-            </div>
-
-        </div>
-    )
-}
-
+import Header from "./components/Header";//To use Header file in this file we have to import it and we can also use .js extenstion in last("./components/Header.js") so both way are same.
+import Body from "./components/Body";
 //body
 const styleCard={//Inline style
     backgroundColor:"#f0f0f0"
 }
-/*What is config-driven ui?
-Configuration-driven UI, also known as config-driven UI or configuration-based UI - When you build real a world application so you want your should website work in many country or many places so we control our fontend which is known as using Config-Driven UI . API or Backend Driven which is data Comming from API.
-or
-In a configuration-driven UI, the layout, styles, and other properties of UI elements are defined in a configuration file or database, which can be easily modified without requiring changes to the codebase. This approach makes it easier to customize the UI for different use cases or user groups, without the need for extensive coding.
-The configuration file or database may also define the data sources and the data to be displayed in the UI, as well as the interactions and behavior of the UI components. This allows for greater flexibility and adaptability of the UI to different use cases, as the configuration data can be easily modified or replaced without affecting the underlying application logic*/
+
 // Card
-const RestaurabtCard=(props)=>{//Instead of props we can do destructuring like we can write {reName,cuisins} instead of props in above round bracket ,both are same .
+const RestaurabtCard=(props)=>{
     
     // const {name,cuisines}=props;
     const {resData}=props;
     // Here props is an object hence we have to write props.name in curlie bracket.
 
-    //Optimization
-    // 1)resData?.data is an example of using the optional chaining operator in JavaScript. This operator allows you to access properties of an object in a way that gracefully handles cases where the object or its properties might be null or undefined.
-    // a)If resData is null or undefined, the expression resData?.data will return undefined without causing an error.
-    // b)If resData is not null or undefined, the expression will effectively access the data property of resData.
-    // 2)Destructuring is a feature in JavaScript that allows you to extract values from arrays or properties from objects into distinct variables. It provides a concise way to unpack values from data structures like arrays and objects, making your code more readable and less repetitive. 
     const {
         name,
         cuisines,
@@ -60,19 +26,9 @@ const RestaurabtCard=(props)=>{//Instead of props we can do destructuring like w
         <div className="res-card" style={styleCard} >
             <img 
             className="res-logo"
-            // + operator use in javaScript hence we wrap this inside  curlie bracket.
-            // In src we use cdn and cloudinaryImageId , here cloudinaryImageId is different for every image and cdn is same for every image.
             src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_366/"+cloudinaryImageId}
             alt="" />
 
-            {/* <h3>{props.name}</h3> 
-             <h4>{cuisines}</h4> */}
-
-             {/* <h3>{resData.info.name}</h3> 
-             <h4>{resData.info.cuisines.join(", ")}</h4>
-             <h4>{resData.info.avgRating}</h4>
-             <h4>{resData.info.costForTwo}</h4>
-             <h4>{resData.info.sla.deliveryTime} minutes</h4> */}
 
              {/* Optimization */}
             <h3>{name}</h3> 
@@ -1177,37 +1133,7 @@ const resList=[
       }
     
 ]  
-const Body=()=>{
-    return(
-        <div className="body">
-            <div className="search">
-                Search
-            </div>
-            <div className="res-container">
-                {/* Whenever we need anything which can be reuse we create Component for that . */}
-                {/* name,cuisins,resData are props. */}
 
-                  {/* <RestaurabtCard 
-                 resData={resList}/> */}
-                {/* <RestaurabtCard name="KFC"
-                cuisins="Burger, Fast Food is  Indian"/> */}
-
-                {/* Optimization(map method) */}  
-
-                {/* Note:- 1)whenever we looping over list we have to provide key. we use key keyword to provide key.key should be unique.we give unique id to key keyword.
-                2 Keys are used in React to identify which items in the list are changed, updated, or deleted.
-                3)Keys are used to give an identity to the elements in the lists. */}
-                {
-                resList.map((item)=>{
-                        return <RestaurabtCard key={item.info.id} resData={item}/>
-                })
-                
-                }
-                 
-            </div>
-        </div>
-    )
-}
 const AppLayout=()=>{
      return (
         <div className="app "> 
