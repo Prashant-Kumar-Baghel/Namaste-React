@@ -55,19 +55,19 @@ const Title=()=>(<h1>Namaste React</h1>);//wrap h1 into round bracket for multip
 /*Suppose we are getting some data from api(like const data=api.getdata();) and that data is some kind of mallesious data which will run in laptops and if attacker get access to run javascript in laptop then attacker can steal cookies, read localStorage , get information of laptop  and this type of attack known as cross-side scripting.But jsx is take care of these attacks.Basically jsx just escape mallesious code.whatever we write inside curlie bracket that will sanitize and pass further or prevent cross-side scripting.*/
 //Component Composition 
 const HeadingComponent=()=>{
-    return <div className="container">
+    return (<div className="container">
         {/* Putting component inside a component.<Title/> and <Tittle></Tittle> both gives same result.*/}
         <Title/>
         {/* Putting javaScript code inside a curlie brscket.*/}
         {number}
         {10+10}
-        {/* Putting jsxheading element inside component */}
+        {/* Putting jsxheading element inside component because end of the day it is an javaScript object */}
         {jsxheading}
         {console.log("hello")}
         {/* At the end, component is a javaScript function hence hence we can also write component inside curlie bracket.  */}
         {Title()}
         <h1>Namaste React Functional Component</h1>
-    </div>
+    </div>)
 }
 
 const root=ReactDOM.createRoot(document.getElementById("root"));

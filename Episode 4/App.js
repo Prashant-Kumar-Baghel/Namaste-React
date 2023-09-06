@@ -31,8 +31,9 @@ const Header=()=>{
 const styleCard={//Inline style
     backgroundColor:"#f0f0f0"
 }
-/*What is consfig-driven ui?
-Configuration-driven UI, also known as config-driven UI or configuration-based UI - When you build real a world application so you want your should website work in many country or many places so we control our fontend which is known as using Config-Driven UI . API or Backend Driven which is data Comming from API.
+/*What is config-driven ui?
+Configuration-driven UI, also known as config-driven UI or configuration-based UI - When you build a real world application so you want your  website
+should work in many country or many places so we control our fontend which is known as using Config-Driven UI.
 or
 In a configuration-driven UI, the layout, styles, and other properties of UI elements are defined in a configuration file or database, which can be easily modified without requiring changes to the codebase. This approach makes it easier to customize the UI for different use cases or user groups, without the need for extensive coding.
 The configuration file or database may also define the data sources and the data to be displayed in the UI, as well as the interactions and behavior of the UI components. This allows for greater flexibility and adaptability of the UI to different use cases, as the configuration data can be easily modified or replaced without affecting the underlying application logic*/
@@ -44,7 +45,7 @@ const RestaurabtCard=(props)=>{//Instead of props we can do destructuring like w
 
     //Optimization
     // 1)resData?.data is an example of using the optional chaining operator in JavaScript. This operator allows you to access properties of an object in a way that gracefully handles cases where the object or its properties might be null or undefined.
-    // a)If resData is null or undefined, the expression resData?.data will return undefined without causing an error.
+    // a)If resData is null or undefined, the expression resData?.info will return undefined without causing an error.
     // b)If resData is not null or undefined, the expression will effectively access the data property of resData.
     // 2)Destructuring is a feature in JavaScript that allows you to extract values from arrays or properties from objects into distinct variables. It provides a concise way to unpack values from data structures like arrays and objects, making your code more readable and less repetitive. 
     const {

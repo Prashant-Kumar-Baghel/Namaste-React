@@ -8,7 +8,7 @@ const Body=()=>{
   //Hooks
  //At the end of day, hook is normal javaScript function which is given by react.it is pre-built.that function is a utility function given by react.these hooks(js function) written inside react in node_modulus. 
 
- //Always write hook inside the component jsut above the return statement.
+ //Always write hook inside the component just above the return statement.
  
  //State Variable
 

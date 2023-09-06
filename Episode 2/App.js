@@ -41,3 +41,8 @@ const root= ReactDOM.createRoot(document.getElementById("root"));
 root.render(heading);
 // root.render(parent);
 // root.render(parent1);
+
+// What is bundler?
+// A bundler in React is a tool that allows developers to package their code into a single file or bundle. 
+// They allow developers to bundle their code, including libraries and frameworks, into a single file. This makes it easier to deploy and run the application, as well as making the code more efficient and maintainable.
+// In other words, a bundler is a tool that helps you manage the dependencies and assets of your React application, and package them into a single file (or a few files) that can be served to the browser.
