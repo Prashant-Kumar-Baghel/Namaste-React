@@ -1,0 +1,144 @@
+#heading{
+    color: brown;
+    
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+/* Navigation */
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0vw 8vw;
+    align-items: center;
+    /* border: 2px solid black; */
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.15); 
+}
+.header ul{
+    display: flex;
+}
+.header ul li{
+    margin-right: 32px;
+    list-style-type: none;
+    font-size: 26px;
+    font-weight: 500;
+}
+
+/* Card */
+.res-card{
+    width: 200px;
+    /* height: 300px; */
+    
+    /* we give padding: 5px to make little distance with boundary of card so card look amazing. */
+    padding: 5px;
+    /* we give margin: 4px to make distance between cards */
+    margin: 4px;
+}
+.filter-btn-box{
+    margin: 10px;
+    cursor: pointer;
+}
+.res-logo{
+     width: 100%;
+    height: 230px;
+}
+.res-card:hover{
+    border: 1px solid black;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.res-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Shimmer */
+.shimmer-containers{
+    display: flex;
+    flex-wrap: wrap;
+}
+.shimmer-cards{
+    width: 200px;
+    margin: 20px;
+    height: 400px;
+    background-color: #f0f0f0;
+}
+
+.log-btn{
+    padding: 5px 20px;
+    background-color:rgb(100, 97, 21);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+   cursor: pointer;
+}
+.search{
+    margin: 10px;
+    /* cursor: pointer; */
+}
+.search-box{
+    margin-right: 8px;
+}
+
+.filter{
+    display: flex;
+}
+.search-box {
+    width: 200px; /* Adjust the width as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    background-color:#fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Style for the search icon (you can use an SVG or an icon font) */
+  .search-box::before {
+    content: '\f002'; /* Unicode for a search icon (e.g., Font Awesome) */
+    font-family: FontAwesome; /* Use the appropriate font family */
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #888;
+  }
+
+  /* Style for the placeholder text */
+  .search-box::placeholder {
+    color: #888;
+  }
+
+  /* Style for the search button */
+.search-btn {
+    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: #a76726; /* Change the button's background color */
+    color: #fff; /* Change the text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Add a smooth hover effect */
+  }
+  
+  /* Hover effect */
+  .search-btn:hover {
+    background-color: #0056b3; /* Change the button's background color on hover */
+  }
+  
+  /* Optional: Add a border */
+  .search-btn:focus {
+    outline: none; /* Remove the default focus outline */
+    box-shadow: 0 0 3px 2px #0074D9; /* Add a subtle box shadow on focus */
+  }
+  .filter-btn-box{
+    padding: 10px 20px; /* Adjust padding as needed */
+    background-color: #1e984d; /* Change the button's background color */
+    color: #fff; /* Change the text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
