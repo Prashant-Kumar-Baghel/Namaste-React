@@ -6,13 +6,14 @@ import ReactDOM from "react-dom/client";
 
 //JSX
 // JSX=>React.createElement=> ReactElement(JS object)=>HTMLELement(render)
-const elem=<span>React element</span>;
+const elem=<span>React Element</span>
 const jsxheading= (<h1 id="heading" className="head">
     {/* Putting one element in another element.  */}
     {elem}
     Namaste React using Jsx
     </h1>)
-const number=1000;
+   
+const number=1000; 
 //Arrow function
 /*arrow function gets shorter! If the function has only one statement, and the statement returns a value, you can remove the brackets and the return  keyword:
 const root=ReactDOM.createRoot(document.getElementById("root"));
@@ -58,13 +59,13 @@ const HeadingComponent=()=>{
     return (<div className="container">
         {/* Putting component inside a component.<Title/> and <Tittle></Tittle> both gives same result.*/}
         <Title/>
-        {/* Putting javaScript code inside a curlie brscket.*/}
+        {/* Putting javaScript code inside a curlie bracket.*/}
         {number}
         {10+10}
         {/* Putting jsxheading element inside component because end of the day it is an javaScript object */}
         {jsxheading}
         {console.log("hello")}
-        {/* At the end, component is a javaScript function hence hence we can also write component inside curlie bracket.  */}
+        {/* At the end, component is a javaScript function hence we can also write component inside curlie bracket.  */}
         {Title()}
         <h1>Namaste React Functional Component</h1>
     </div>)

@@ -18,10 +18,12 @@ const Header=()=>{
                         <li>About Us</li>
                         <li>Contact Us</li>
                         <li>Cart</li>
+                        {/* When we click on button then react re-render the whole component but during re-rendering btnName has updated value so whatever inside button is changed. */}
                         <button className="log-btn" onClick={()=>{
                             btnName==="Login"?setBtnName("Logout"):setBtnName("Login")
                         }}>{btnName}</button>
                     </ul>
+                    
                 
             </div>
 

@@ -12,7 +12,7 @@ const Body=()=>{
  const [isLoading, setIsLoading] = useState(true);//we introduce a new state variable called isLoading to track whether data is still being fetched. We set it to true initially and update it to false when the data is available. This ensures that the Shimmer component is displayed while the data is loading, and the restaurant list is displayed once the data is available. 
 
  const [searchText,setSearchText]=useState("")
-//  useEffect is just an normal function which has two argumnets . 1st is arrow function(call-back function) and 2nd is dependencies Array.
+//  useEffect is just an normal function which has two arguments . 1st is arrow function(call-back function) and 2nd is dependencies Array.
 /*When the useEffect callback function(arrow function) will call?
 The callback function will call after your component render.*/
 // If you want to do something after rendering the component then write it inside useEffect. 
@@ -24,16 +24,16 @@ As soon as body component render,body component render line by line . when it se
 
  const fetchData= async ()=>{
     //Calling Swiggy.com from localhost has been blocked due to CORS policy(basically our browser block us to call api from one origin to another origin. )
-    //To Bypass CORS Error we use CORS Extension.
-    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7333148&lng=76.7794179&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    //To Bypass CORS Error we use CORS Extension.But When we use our app on other laptops where CORS Extension not available because it is not necassary that our every user know about CORS hence To Bypass CORS Error in this case we use website called as corsproxy.io . now we are not making direct call to swiggy website , we are going to corsproxy.io and internally it making call to swiggy and get data the returning you that data.now we can use our app without CORS Extension also.
+    const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7333148&lng=76.7794179&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
 
-   const json= await data.json();//In json we all api data
+   const json= await data.json();//In json we all api data(we converting our data into json)
    console.log(json);
    //Update listOfRestaurents by live data.
    //Optional Chaining:-This operator helps to avoid the "Cannot read property 'x' of undefined" or "Cannot read property 'x' of null" errors that can occur when you try to access properties or methods on variables that might be null or undefined.
-   //Whenever use object property then use optional chaning because it is good way of handeling the data.
-   setListOfRestaurents(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-   setFilteredRestaurents(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)//Intially my filteredRestaurents is empty and we get nothing on the page so to resolve this problem we updated the filteredRestaurents by data we get from api. 
+   //Whenever we use object property then use optional chaning because it is good way of handeling the data.
+   setListOfRestaurents(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)//Initially on our localhost we donot get all restaurents but on swiggy website as you scroll down the page we get more restaurents so to get this feature we use update api and we have to make a post api call.[Timeline in video 6.1 to build this feature :- 37:50 to 40:00]
+   setFilteredRestaurents(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)//Intially my filteredRestaurents is empty and we get nothing on the page so to resolve this problem we updated the filteredRestaurents by data we get from api. 
    setIsLoading(false); 
 
  }
@@ -66,7 +66,7 @@ As soon as body component render,body component render line by line . when it se
                 className="search-box"  
                 value={searchText} 
                 onChange={(e)=>{
-                console.log(e);
+                // console.log(e);
                 setSearchText(e.target.value);
                 }}/> 
                 
@@ -88,7 +88,7 @@ As soon as body component render,body component render line by line . when it se
         
                     onClick={()=>{
                     const filteredList= listOfRestaurents.filter((item)=>item.info.avgRating>=4 )//Use filter method.
-                    setListOfRestaurents(filteredList);//Proper way of updating state variable.
+                    setFilteredRestaurents(filteredList);//Proper way of updating state variable.
                     }
                     }
                     

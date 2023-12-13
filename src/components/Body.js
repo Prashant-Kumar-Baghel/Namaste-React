@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"; //we import as a named import.
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 // import resList from "../utils/mockData";//Now we are using live api data hence no need of resList hence we also delete mockData.js folder(/utils/mockData).
 
 const Body=()=>{
@@ -25,15 +26,16 @@ As soon as body component render,body component render line by line . when it se
  const fetchData= async ()=>{
     //Calling Swiggy.com from localhost has been blocked due to CORS policy(basically our browser block us to call api from one origin to another origin. )
     //To Bypass CORS Error we use CORS Extension.
-    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7333148&lng=76.7794179&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7042912&lng=76.7104408&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    
 
    const json= await data.json();//In json we all api data
    console.log(json);
    //Update listOfRestaurents by live data.
    //Optional Chaining:-This operator helps to avoid the "Cannot read property 'x' of undefined" or "Cannot read property 'x' of null" errors that can occur when you try to access properties or methods on variables that might be null or undefined.
    //Whenever use object property then use optional chaning because it is good way of handeling the data.
-   setListOfRestaurents(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-   setFilteredRestaurents(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)//Intially my filteredRestaurents is empty and we get nothing on the page so to resolve this problem we updated the filteredRestaurents by data we get from api. 
+   setListOfRestaurents(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+   setFilteredRestaurents(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)//Intially my filteredRestaurents is empty and we get nothing on the page so to resolve this problem we updated the filteredRestaurents by data we get from api. 
    setIsLoading(false); 
 
  }
@@ -64,11 +66,13 @@ As soon as body component render,body component render line by line . when it se
                 {/* Here we bind the value to searchText state variable and searchText state variable is bind to input tag.so to change(write) in input box we have to change searchText and for that we use onChange event handeler. */}
                 <input type="text" 
                 className="search-box"  
-                value={searchText} 
+                // value={searchText} 
                 onChange={(e)=>{
                 console.log(e);
                 setSearchText(e.target.value);
-                }}/> 
+                placeholder="Search For restaurat"
+                }}
+                /> 
                 
                 <button onClick={()=>{
                     //filter the restaurents card and update the ui .
@@ -76,9 +80,9 @@ As soon as body component render,body component render line by line . when it se
                     const filteredRestaurent=listOfRestaurents.filter((item)=>item.info.name.toLowerCase().includes(searchText.toLowerCase())) //The includes() method returns true if a string contains a specified value.
                     // setListOfRestaurents(filteredRestaurent);
                     setFilteredRestaurents(filteredRestaurent); 
+                    
 
-
-                }}>Search</button>
+                }} className="search-btn">Search</button>
                 </div>
 
                 {/* Filter restaurents by rating */}
@@ -88,7 +92,7 @@ As soon as body component render,body component render line by line . when it se
         
                     onClick={()=>{
                     const filteredList= listOfRestaurents.filter((item)=>item.info.avgRating>=4 )//Use filter method.
-                    setListOfRestaurents(filteredList);//Proper way of updating state variable.
+                    setFilteredRestaurents(filteredList);//Proper way of updating state variable.
                     }
                     }
                     
@@ -108,10 +112,21 @@ As soon as body component render,body component render line by line . when it se
                     // })
 
                     //we kept copy of all the restaurents in listOfRestaurents state variable and during rendering i render filteredRestaurents.
+                    // filteredRestaurents?.map((item)=>{
+                    //     return (<RestaurantCard 
+                    //     key={item.info.id} 
+                    //     resData={item}/>
+                    //     );
+                    // })
+                    
+                    //Here we making card clickable using Link tag.we mapping over Link tag hence key should be in Link tag.
                     filteredRestaurents?.map((item)=>{
-                        return (<RestaurantCard 
+                        return (
+                        <Link 
                         key={item.info.id} 
-                        resData={item}/>
+                        to={"/restaurants/"+item.info.id}>
+                            <RestaurantCard resData={item}/>
+                            </Link>
                         );
                     })
                 

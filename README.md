@@ -12,4 +12,8 @@ Key characteristics of a monolithic architecture include:
 
 
 <!-- Microservices architecture -->
-Microservices architecture is a software design pattern in which an application is broken down into a collection of small, loosely coupled, and independently deployable services. Each service represents a specific business capability or functionality and is designed to work as a standalone unit. These services communicate with each other through well-defined APIs, often using lightweight protocols like HTTP or messaging systems. -->
+<!-- Microservices architecture is a software design pattern in which an application is broken down into a collection of small, loosely coupled, and independently deployable services. Each service represents a specific business capability or functionality and is designed to work as a standalone unit. These services communicate with each other through well-defined APIs, often using lightweight protocols like HTTP or messaging systems. -->
+
+<!-- Note:-
+1)In React, when the state of a component changes, React schedules a re-render of that component. However, the actual re-rendering might not happen immediately; React may batch multiple state updates and perform them in a single pass for performance reasons. This is known as "batching updates."
+2)The key idea is that React attempts to optimize the rendering process by grouping together multiple state updates and rendering them in a single batch. This helps prevent unnecessary re-renders and can improve the overall performance of the application. -->

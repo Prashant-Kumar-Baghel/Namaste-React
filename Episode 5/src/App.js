@@ -5,6 +5,7 @@ import Body from "./components/Body";
 
 
 const AppLayout=()=>{
+    console.log(<Body/>);//This line code gives us an javascripit object which is called virtual dom. i mean to say if there is any big structure it is an object. 
      return (
         <div className="app "> 
             <Header/>
