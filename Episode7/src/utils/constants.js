@@ -4,7 +4,7 @@
 
  const LOGO_URL="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTThk6B4F2Q-aQEosit-VHmYfxhiDDAlBNo-JuA8nQN&s";
 
-const MENU_API="https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.7042912&lng=76.7104408&restaurantId="
+const MENU_API="https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.7042912&lng=76.7104408&restaurantId="
 export {CDN_URL,LOGO_URL,MENU_API}; 
 // https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.7042912&lng=76.7104408&restaurantId=49692&catalog_qa=undefined&submitAction=ENTER
 

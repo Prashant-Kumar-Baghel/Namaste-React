@@ -26,7 +26,7 @@ As soon as body component render,body component render line by line . when it se
  const fetchData= async ()=>{
     //Calling Swiggy.com from localhost has been blocked due to CORS policy(basically our browser block us to call api from one origin to another origin. )
     //To Bypass CORS Error we use CORS Extension.
-    const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7042912&lng=76.7104408&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.7042912&lng=76.7104408&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
     
 
    const json= await data.json();//In json we all api data
