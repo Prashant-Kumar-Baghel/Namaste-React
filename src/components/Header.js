@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 const Header=()=>{
     const [btnName,setBtnName]= useState("Login");
     /* if dependency array is [btnName] then useEffect will call everytime when btnName is updated.
@@ -12,6 +13,8 @@ const Header=()=>{
     function(){
         const [temp,setTemp]=useState("");
     }*/
+
+    const onlineStatus=useOnlineStatus();
     return (
         <div className="header">    
 
@@ -37,6 +40,9 @@ const Header=()=>{
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/about">About Us</Link></li>
                         <li><Link to="/contact">Contact Us</Link></li>
+                        <li>Online Status:-{onlineStatus?"🟢":"🔴"}</li>
+                        <li><Link to="/grocery">Grocery</Link></li>
+                        {/* red and green ball should be string. */}
                         <li>Cart</li>
                         <button className="log-btn" onClick={()=>{
                             btnName==="Login"?setBtnName("Logout"):setBtnName("Login")

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"; //we import as a named import.
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 // import resList from "../utils/mockData";//Now we are using live api data hence no need of resList hence we also delete mockData.js folder(/utils/mockData).
 
 const Body=()=>{
@@ -34,8 +35,8 @@ As soon as body component render,body component render line by line . when it se
    //Update listOfRestaurents by live data.
    //Optional Chaining:-This operator helps to avoid the "Cannot read property 'x' of undefined" or "Cannot read property 'x' of null" errors that can occur when you try to access properties or methods on variables that might be null or undefined.
    //Whenever use object property then use optional chaning because it is good way of handeling the data.
-   setListOfRestaurents(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-   setFilteredRestaurents(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)//Intially my filteredRestaurents is empty and we get nothing on the page so to resolve this problem we updated the filteredRestaurents by data we get from api. 
+   setListOfRestaurents(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+   setFilteredRestaurents(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)//Intially my filteredRestaurents is empty and we get nothing on the page so to resolve this problem we updated the filteredRestaurents by data we get from api. 
    setIsLoading(false); 
 
  }
@@ -49,6 +50,14 @@ As soon as body component render,body component render line by line . when it se
 //     return <Shimmer/>
 //  }
 
+
+const onlineStatus=useOnlineStatus();//using custom hook to check offline/online avaibility.(Browser also give capability to check how website looks when we are offline and for that we go inspect-> Network->No throttling(choose offline)).
+
+if(onlineStatus===false){//when we are offline then we get this message and we also display games for good user experience instead of that message.
+    return(
+        <h1>Looks like you are offline So Please Check Your Internet Connection.</h1>
+    )
+}
 
  //Return Using Teirnary operator
     return isLoading?(<Shimmer/>): (

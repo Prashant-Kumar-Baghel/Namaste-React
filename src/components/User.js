@@ -9,7 +9,7 @@ const User=(props)=>{
             <h1>Count:{current1}</h1>
             <h2>Name:{props.name}</h2>
             <h3>Address:Mathura</h3>
-            <h4>Contact No:9876541110</h4>
+            <h4>Contact No:9876541187</h4>
         </div>
     )
 }

@@ -166,6 +166,7 @@ const Body=()=>{
             </div>
             
             <div className="res-container">
+            {/* {item.info.id} and {item}: Inside the JSX of the RestaurantCard component, curly brackets are used to represent JavaScript expressions for the key and resData props. The key prop is set to the id property of the item.info object, and the resData prop is set to the entire item object. */}
                 {
                 listRest.map((item)=>{
                         return (<RestaurantCard 

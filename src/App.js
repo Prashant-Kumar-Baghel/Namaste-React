@@ -1,38 +1,46 @@
-import React, { Children } from "react";
+import React, { lazy,Suspense} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";//for routing configuration i import createBrowserRouter.and that createBrowserRouter create routing configuration for us.
-import About from "./components/About"
+// import About from "./components/About"
 import Contact from "./components/Contact"
 import Error from "./components/Error"
 import RestaurantMenu from "./components/RestaurantMenu";
+// import Grocery from "./components/Grocery"; //For create Grocery  different bundle we donot import Grocery component like this .
+ 
+
+
+//this is how we import grocery to create its different bundler. we use lazy to import Grocery. 
+//lazy is an function which is given us to by react and which is named export.lazy takes a callback function and in that callback function we can write our import.
+/*Define the import which present in lazy?
+Ans:- this import basically a function and that function take the path of grocery. */
+/*Intially On first time when we navigate to glocery page then get error because when we load the homepage we got only one javascript file  and that js file doesnot has glocery code now i am loading glocery code on demand i.e when i click  glocery button then my glocery code will be loading but it takes 12ms to 13ms to come to browser.but react is very fast an react try to load grocery component and code is not there and react suspending the rendering. we use Suspense component to remove this error and we wrap our grocery component in suspense component.  */
+/*What is Suspense?
+It is component which come from React and wrap this Suspence over the component which is not available at the moment and give the placeholder(fallbak) to suspense. */
+
+// when we load the homepage we got only one javascript file  and that js file doesnot has glocery code. when i click  glocery button then my glocery code will be loading but it takes 12ms to 13ms to come to Browser.but react try to load something so meanwhile intermediatly react want something to present on screen and you can give that inside fallback inside Suspense.
+// In fallback you can pass shimmer UI,tag etc.
+
+
+const Grocery= lazy(()=>import("./components/Grocery"));
+/*Now After using the lazy function, when we go to glocery page then we able to see glocery(js) file in inspect->network->js.*/
+// Now main bundle doesnot has glocery component and glocery bundle has glocery code.
+//when we check dist folder we also get glocery js file.
+
+//Lazy Loading for About Us Page
+const About= lazy(()=>import("./components/About"))
+
 const AppLayout=()=>{
     
      return (
         <div className="app "> 
             <Header/>
-            {/* the Outlet  component from React Router is a placeholder that will be replaced with the content of the currently matched route when the application is navigated. Each route can have its own component that defines what should be displayed within this outlet.The React Router <Outlet/> component (from react-router-dom ) is used within the parent route element.*/}
-
-            {/* Here i am pussing my childrens over outlet according to  route like if path:"/about" then <Outlet/> is replaced by <about/> component or if path:"/" then <Outlet/> is replaced by <body/> component*/}
-            {/* Note:-Outlet always filled by children according to path. */}
-
             <Outlet/>
-
-
         </div> 
      )
 } 
-// we developing the router(appRouter) and pass the configuration inside the createBrowserRouter.
-/* What is the configuration?
-configuration mean some information which define what will happen on specific Route or we can say configuration is list of paths*/
 
-/*What is path?
-path is just an object and it contain two things first is path and second is element(i.e for specific path ,load given element )*/
-
-// After creating this configuration, i need to provide this configuration for rendering.
-/*How do i provide this configuration?
-we use RouterProvider component to provide this routing configuration to our app.*/ 
 const appRouter= createBrowserRouter([
     {
         path:"/",//we can call this root route(parent route)
@@ -44,12 +52,18 @@ const appRouter= createBrowserRouter([
            },
            {
                path:"/about",//Here /about is children of AppLayout.
-               element:<About/>
+               element: <Suspense fallback={<h1>Loding....</h1>}><About/></Suspense>//    In JSX, curly brackets {} are used to embed JavaScript expressions or values within the markup. In this code, the curly brackets are used to wrap a JavaScript expression inside the fallback prop of the <Suspense> component.
            },
            {
                path:"/contact",
                element:<Contact/>
            },
+           {
+            path:"/grocery",
+            element:<Suspense fallback={<h1>Loding....</h1>}><Grocery/></Suspense>
+           }
+        //    We can see fallback by insect->Network-> Replace No throtting by slow 3g
+           ,
            {
             // we want this path should be dynamic because this path should be different for different restaurents and to make this path dynamic we use :(colon) and then give restaurantId.   
                path: "/restaurants/:resId",//resId is id of restaurant.
