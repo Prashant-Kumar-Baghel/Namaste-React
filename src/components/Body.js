@@ -62,7 +62,7 @@ if(onlineStatus===false){//when we are offline then we get this message and we a
  //Return Using Teirnary operator
     return isLoading?(<Shimmer/>): (
         <div className="body">
-            <div className="filter">
+            <div className="filter flex items-center gap-2">
                 
                 {/* Search restaurents by name feature */}
                 <div className="search">
@@ -74,7 +74,7 @@ if(onlineStatus===false){//when we are offline then we get this message and we a
 
                 {/* Here we bind the value to searchText state variable and searchText state variable is bind to input tag.so to change(write) in input box we have to change searchText and for that we use onChange event handeler. */}
                 <input type="text" 
-                className="search-box"  
+                className="search-box px-4 py-2 m-4 border-solid border-black border-2"  
                 // value={searchText} 
                 onChange={(e)=>{
                 console.log(e);
@@ -91,13 +91,13 @@ if(onlineStatus===false){//when we are offline then we get this message and we a
                     setFilteredRestaurents(filteredRestaurent); 
                     
 
-                }} className="search-btn">Search</button>
+                }} className="search-btn px-2 py-2 bg-green-300 rounded-lg">Search</button>
                 </div>
 
                 {/* Filter restaurents by rating */}
-                <div className="filter-btn">
+                <div className="filter-btn ">
                     <button 
-                    className="filter-btn-box"
+                    className="filter-btn-box bg-red-300 p-2 rounded-lg"
         
                     onClick={()=>{
                     const filteredList= listOfRestaurents.filter((item)=>item.info.avgRating>=4 )//Use filter method.
@@ -111,7 +111,7 @@ if(onlineStatus===false){//when we are offline then we get this message and we a
             </div>
             
             
-            <div className="res-container">
+            <div className="res-container flex flex-wrap">
                 {
                     // listOfRestaurents?.map((item)=>{
                     //     return (<RestaurantCard 

@@ -4,46 +4,27 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 const Header=()=>{
     const [btnName,setBtnName]= useState("Login");
-    /* if dependency array is [btnName] then useEffect will call everytime when btnName is updated.
-    useEffect(()=>{
-        console.log("Header Render")
-    },[btnName])*/
-
-    /*Don't create useState inside function like below(that is don't use in nested function)
-    function(){
-        const [temp,setTemp]=useState("");
-    }*/
-
     const onlineStatus=useOnlineStatus();
     return (
-        <div className="header">    
-
+        <div className="flex justify-between bg-pink-100 shadow-md m-2 items-center px-5 container mx-auto overflow-hidden">  
+        {/* className="flex" makes display as flex of div container and w-15 set the width*/}
             <div className="logo-container">
                 <img 
-                className="logo"
+                className="w-15"
                 src={LOGO_URL}/>
             </div>
 
             <div className="nav-items">
                 
-                    <ul>
-                        {/* when we use the react and want to navigate to another page, never use anchor tag because the whole page got refereshed.  */}
+                    <ul className="flex p-5 m-4">
 
-                        {/* To navigate to another page without reloading whole page we use Link component instead of anchor tag and in Link component we use <to> attribute to provide path.*/} 
-
-                        {/* Link doesnot reload the whole page it just refreshed the components(i.e it just changes the components) and thatswhy our react application known as single page application.   */}
-
-                        {/* single page application mean it is a whole single page(i.e it is a whole single component(app.js)) and all the routing(all new pages) are just components interchanging themselves. */}
-
-
-                        {/* When i click on Home then it doesnot reload whole page it just fetches the data. */}
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/about">About Us</Link></li>
-                        <li><Link to="/contact">Contact Us</Link></li>
-                        <li>Online Status:-{onlineStatus?"🟢":"🔴"}</li>
-                        <li><Link to="/grocery">Grocery</Link></li>
+                        <li className="px-4"><Link to="/">Home</Link></li>
+                        <li className="px-4"><Link to="/about">About Us</Link></li>
+                        <li className="px-4"><Link to="/contact">Contact Us</Link></li>
+                        <li className="px-4">Online Status:-{onlineStatus?"🟢":"🔴"}</li>
+                        <li className="px-4"><Link to="/grocery">Grocery</Link></li>
                         {/* red and green ball should be string. */}
-                        <li>Cart</li>
+                        <li className="px-4">Cart</li>
                         <button className="log-btn" onClick={()=>{
                             btnName==="Login"?setBtnName("Logout"):setBtnName("Login")
                         }}>{btnName}</button>
