@@ -1,0 +1,4 @@
+# .gitattributes
+*.js text eol=lf
+*.json text eol=lf
+*.css text eol=lf
