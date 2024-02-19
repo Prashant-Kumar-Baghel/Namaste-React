@@ -126,7 +126,7 @@ As soon as body component render,body component render line by line . when it se
                         key={item.info.id} 
                         to={"/restaurants/"+item.info.id}>
                             <RestaurantCard resData={item}/>
-                            </Link>
+                            </Link>     
                         );
                     })
                 

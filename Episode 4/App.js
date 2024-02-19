@@ -60,7 +60,7 @@ const RestaurabtCard=(props)=>{//Instead of props we can do destructuring like w
             <img 
             className="res-logo"
             // + operator use in javaScript hence we wrap this inside  curlie bracket.
-            // In src we use cdn and cloudinaryImageId , here cloudinaryImageId is different for every image and cdn is same for every image.
+            // In src, we use cdn and cloudinaryImageId , here cloudinaryImageId is different for every image and cdn is same for every image.
             src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_366/"+cloudinaryImageId}
             alt="" />
 

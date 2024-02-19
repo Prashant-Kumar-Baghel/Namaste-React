@@ -1,3 +1,4 @@
+import userContext from "../utils/userContext";
 import User from "./User"
 import UserClass from "./UserClass";
 import React from "react";
@@ -34,6 +35,16 @@ class About extends React.Component{//we can also write "class About extends Com
              <h1>About classCompoment</h1>
              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi, magni!</p>
 
+             {/* Way to use context inside class based component and basically when we create context then react gives you power of .Consumer as well. we use userContext.Consumer component to access the data. Inside  userContext.Consumer component we have callback function through which we access te data.*/}
+             <div>
+                <userContext.Consumer>
+                    
+                    {(data)=>{
+                        const {loggedInUser}=data;
+                        return <p className="text-bold text-red-500">loggedInUser:- {loggedInUser}</p>//we have to return p from here.
+                    }}
+                </userContext.Consumer>
+             </div>
             {/*1) Way to use class based component in another component.
             2)Way to pass the props in class based component */}           
            <UserClass name={"Child-1"} location="Mathura"/>

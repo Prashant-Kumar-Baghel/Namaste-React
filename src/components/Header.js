@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import userContext from "../utils/userContext";
 const Header=()=>{
     const [btnName,setBtnName]= useState("Login");
+    // Way to access context (We use React useContext hook to access context and we pass the context inside useContext hook that we want to use.we pass the context inside useContext hook because in react we can create multiples contexts. ) 
+    const {loggedInUser}=useContext(userContext);
     const onlineStatus=useOnlineStatus();
     return (
         <div className="flex justify-between bg-pink-100 shadow-md m-2 items-center px-5 container mx-auto overflow-hidden">  
@@ -28,6 +31,9 @@ const Header=()=>{
                         <button className="log-btn" onClick={()=>{
                             btnName==="Login"?setBtnName("Logout"):setBtnName("Login")
                         }}>{btnName}</button>
+
+                        {/*Using The Context*/}
+                        <li className="px-4">{loggedInUser}</li>
                     </ul>
                 
             </div>

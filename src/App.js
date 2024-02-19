@@ -1,4 +1,4 @@
-import React, { lazy,Suspense} from "react";
+import React, { lazy,Suspense, useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -7,6 +7,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";/
 import Contact from "./components/Contact"
 import Error from "./components/Error"
 import RestaurantMenu from "./components/RestaurantMenu";
+import userContext from "./utils/userContext";
 // import Grocery from "./components/Grocery"; //For create Grocery  different bundle we donot import Grocery component like this .
  
 
@@ -32,12 +33,33 @@ const Grocery= lazy(()=>import("./components/Grocery"));
 const About= lazy(()=>import("./components/About"))
 
 const AppLayout=()=>{
+
+    const [username,setUsername]=useState(null);
+
+    //Authentication code
+    useEffect(()=>{
+        //Make the API Call and send username and password to context and now we can use these name at any place.
+        const data={
+            name:"Prashant"
+        }
+        setUsername(data.name)
+    },[])
     
      return (
+        // Way to update the context . Here we just import userContext and providing anew value to it and passing it to whole app.whatever we wrapped inside userContext.Provider the value will be updated inside that. Below we wrapped whole app that mean loggedInUser will updated in whole app. if we wrapped just header inside userContext.Provider then loggedInUser will updated inside only Header and Inside all other places we have default value . Hence we can use our provider for specific portion as well. we can use nesting provider also like below Header component has loggedInUser value is  Baghel and Inside app at  all other places we have loggedInUser value is  Prashant.
+
+        // Default value(Outside app we have loggedInUser value is  Default value)
+        //We have tied the loggedInUser to username state variable so when username state variable changes then loggedInUser also changes and also i need to update username inside body.js so i need setUsername inside body.js for that we pass setUsername function inside context so that we can access that inside body.js using useContext hook.
+        <userContext.Provider value={{loggedInUser:username,setUsername}}>
+            {/* Prashant(Inside app we have loggedInUser value is  Prashant)  */}
         <div className="app "> 
-            <Header/>
+            <userContext.Provider value={{loggedInUser:"Baghel"}}>
+                {/* Baghel(Inside Header we have loggedInUser value is  Baghel)  */}
+                 <Header/>
+            </userContext.Provider>
             <Outlet/>
         </div> 
+        </userContext.Provider>
      )
 } 
 
